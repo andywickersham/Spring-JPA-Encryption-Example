@@ -126,7 +126,7 @@ public class CryptoHelper {
 	 * @throws BadPaddingException
 	 */
 	public String decrypt(String cipherText) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException {
-		String[] parts = cipherText.split(SPLIT_CHARACTER);
+		String[] parts = cipherText.split("\\" + SPLIT_CHARACTER);
 		
 		byte[] iv = Base64.decodeBase64(parts[0]);
 		byte[] encrypted = Base64.decodeBase64(parts[1]);

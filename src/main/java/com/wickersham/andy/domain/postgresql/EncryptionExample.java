@@ -12,15 +12,26 @@ import javax.persistence.Table;
 
 import com.wickersham.andy.domain.jpa.converter.JPACryptoConverter;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 /**
  * 
  * @author "Andy Wickersham"
  *
  */
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@RequiredArgsConstructor
+@ToString
+@EqualsAndHashCode
 @Entity
-@Data
 @Table(name = "encryption_example")
 public class EncryptionExample implements Serializable {
 	
@@ -33,9 +44,9 @@ public class EncryptionExample implements Serializable {
 	
 	@Column(name = "encrypted_text")
 	@Convert(converter = JPACryptoConverter.class)
-	private String encryptedText;
+	private @NonNull String encryptedText;
 	
 	@Column(name = "clear_text")
-	private String clearText;
+	private @NonNull String clearText;
 	
 }

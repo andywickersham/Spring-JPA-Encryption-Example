@@ -10,15 +10,12 @@ import org.springframework.stereotype.Service;
 import com.wickersham.andy.domain.postgresql.EncryptionExample;
 import com.wickersham.andy.domain.postgresql.EncryptionExampleRepository;
 
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * 
  * @author "Andy Wickersham"
  *
  */
 @Service
-@Slf4j
 public class EncryptionExampleServiceImpl implements EncryptionExampleService {
 	@Autowired
 	private EncryptionExampleRepository encryptionExampleRepo;
@@ -36,11 +33,7 @@ public class EncryptionExampleServiceImpl implements EncryptionExampleService {
 	
 	@Override
 	public EncryptionExample updateEncryptionExample(String clearText) throws Exception {
-		EncryptionExample newEncryptionExample = new EncryptionExample();
-		newEncryptionExample.setClearText(clearText);
-		newEncryptionExample.setEncryptedText(clearText);
-		
-		log.info("Update: " + newEncryptionExample.toString());
+		EncryptionExample newEncryptionExample = new EncryptionExample(clearText, clearText);
 		
 		return updateEncryptionExample(newEncryptionExample);
 	}
