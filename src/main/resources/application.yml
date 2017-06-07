@@ -1,0 +1,54 @@
+# ====================================================================================
+# APPLICATION PROPERTIES
+# 
+# List of common application properties
+#   http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+#
+#
+#
+#
+#
+# ====================================================================================
+
+# COMMON SPRING CONFIGURATION
+spring:
+  profiles:
+    active: local
+  resources:
+    chain:
+      enabled: true
+  main:
+    banner-mode: "off"
+debug: false
+logging:
+  level:
+    root: INFO
+    
+# SECURITY (Security Properties)
+security:
+  sessions: NEVER
+  ignored: /resources/**
+  basic:
+    enabled: false
+    
+    
+---   
+
+# LOCAL PROFILE CONFIGURATION
+spring:
+  profiles: local
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: p0stgr3s9
+  jpa:
+    show-sql: false
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+      
+server:
+  port: 8085
+  
+
+environment.variable.encryption-symmetric-key: jRyQ2xiIaghGfHk13Kwv/m02PocZiPy+koRPIHtrcDw=
